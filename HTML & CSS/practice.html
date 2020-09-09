@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Password Manager</title>
+<style>
+#visible{
+  display:none;
+}
+ .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 100%;
+  margin-left: 20%;
+  padding: 10% 20%;
+  border-radius: 8px;
+  background-color:#ddf1f0;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+    padding: 2px 16px;}  
+  
+body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    width: 50%;
+    margin: 9px;
+    border: 20px ;
+    padding: 50px;
+    background-color:#f5d775;
+  }
+  h2 {
+    font-size: 24px;
+    text-align:center;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    text-align:center;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  } 
+  .ard {
+    background-color: #db1ef4ea;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 100%;
+    margin-left: 20%;
+    padding:10% 20%;
+    border-radius: 10px;
+  }
+  .ard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .btn{
+    border: 1px solid;
+    float:right;
+    background-color: #fa7020;
+      }
+table
+{
+border-collapse:collapse;
+}
+tr:hover {
+background-color:#f5f5f5;
+}
+th,td{
+border-bottom:2px solid #ddd;
+}
+#t1 tr:nth-child(even)
+{
+background-color:#56e1eb;
+}
+#t1 tr:nth-child(odd)
+{
+background-color:#d86441;
+}
+#t1 th
+{
+background-color:#00FFFF;
+color:black;
+}
+
+</style>
+</head>
+<body>
+<div class="ard">
+    <div class="container">
+    <h2><b>LOCAL PASSWORD MANAGER</b></h2> 
+    <h4>we value your security</h4> 
+    <form action="/view" method="post">
+      <div class="input">
+            <input type="text" name="id" size="60" placeholder="Enter username/domain name">
+        <div class="btn">
+            <input type="submit" class="btn btn-danger" value="List Credentials" ondblclick="setvisible()">
+        </div>
+      </div>
+    </form>
+   </div></div>
+<p id="visible">
+  <div class="card">
+      <div class="container">
+            <h3>CREDENTIALS</h3>  
+            <table>
+                <tr>  
+                    <th>Domain_Name</th>  
+                    <th>User_Name</th>
+                    <th>Password</th> 
+                    <th>Web_Address</th> 
+                </tr>   
+                {% for row in rows %}  
+                    <tr>  
+                        <td>{{row["domain"]}}</td>  
+                        <td>{{row["name"]}}</td>
+                        <td>{{row["word"]}}</td>
+                        <td>{{row["weblink"]}}</td>    
+                    </tr>  
+                {% endfor %}  
+            </table>  
+    </div>
+</div> </p>
+<script>
+    function setvisible(){
+        document.getElementById("visible").style.display="block";
+    }
+</script>
+</body>
+</html>
