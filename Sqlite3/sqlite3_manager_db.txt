@@ -1,0 +1,11 @@
+sqlite3
+.databases
+attach database "manager.db" as manager
+create table wallet(domain varchar(10) primary key not null,weblink varchar(50),name varchar(20),word varchar(20));
+.tables
+insert into wallet(domain,weblink,name,word) values('google','https://www.google.com','abraham','XsFF56ij');
+insert into wallet(domain,weblink,name,word) values('upgrade','https://www.upgrade.com','chellian@gmail.com','wYttt56');
+insert into wallet(domain,weblink,name,word) values('kaggle','https://www.kaggle.com','9999999999','bhbh56df');
+.schema wallet
+select ^ from wallet;
+.exit
